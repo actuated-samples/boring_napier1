@@ -2,12 +2,9 @@ name: build
 
 on: push
 jobs:
-  my-job:
+  ping-google:
     runs-on: actuated
     steps:
-      - name: Docker run
+      - name: Run a ping to Google with Docker
         run: |
-          git clone --depth=1 https://github.com/alexellis/inlets-connect
-          cd inlets-connect
-          docker build -t inlets-connect .
-          docker images
+          docker run --rm -t -i alpine:latest ping -c 3 google.com
